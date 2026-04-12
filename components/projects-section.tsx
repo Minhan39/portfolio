@@ -9,79 +9,65 @@ import { RevealText } from "./reveal-text";
 
 const featuredProjects = [
   {
-    title: "E-Commerce Platform",
+    title: "Personal Finance",
     description:
-      "A full-featured e-commerce platform with real-time inventory management, payment processing, and admin dashboard. Built to handle high traffic with optimized database queries and caching strategies.",
-    technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Redis"],
-    github: "#",
+      "A Flutter app for personal finance management — track income, expenses, and investments with Excel-based data import and Firebase real-time sync.",
+    technologies: ["Flutter", "Firebase", "Google Service"],
+    github: "https://github.com/Minhan39/Personal-Finance",
     live: "#",
-    image: "/project-1.jpg",
+    image: "/project-1.png",
   },
   {
-    title: "AI Content Generator",
+    title: "Oauth Basic",
     description:
-      "An AI-powered application that generates marketing content, blog posts, and social media captions. Features include content scheduling, analytics dashboard, and team collaboration tools.",
-    technologies: ["React", "Node.js", "OpenAI API", "MongoDB", "AWS"],
-    github: "#",
+      "A minimal three-app OAuth 2.0 demo inspired by the book OAuth 2 in Action and the companion repo oauthinaction/oauth-in-action-code. It shows the Authorization Code flow end-to-end with simple in-memory stores.",
+    technologies: ["Node.js"],
+    github: "https://github.com/Minhan39/oauth_basic",
     live: "#",
-    image: "/project-2.jpg",
+    image: "/project-2.png",
   },
   {
-    title: "Real-time Collaboration Tool",
+    title: "Portfolio",
     description:
-      "A real-time collaboration platform similar to Figma, featuring WebSocket-based synchronization, presence indicators, and version history. Optimized for low-latency interactions.",
-    technologies: ["React", "Socket.io", "Canvas API", "Express", "Redis"],
-    github: "#",
-    live: "#",
-    image: "/project-3.jpg",
+      "A personal portfolio built with Next.js & Framer Motion, showcasing my projects, skills, and experience as a Fullstack Developer.",
+    technologies: ["Next.js"],
+    github: "https://github.com/Minhan39/portfolio",
+    live: "https://minhan.one",
+    image: "/project-3.png",
   },
 ];
 
 const otherProjects = [
   {
-    title: "Portfolio Builder",
+    title: "Social Network MHN - APP",
     description:
-      "A drag-and-drop portfolio builder with customizable templates and themes",
-    technologies: ["Vue.js", "Firebase", "Tailwind"],
-    github: "#",
+      "A cross-platform social media app built with Flutter — features real-time feed, post interactions, messaging, and user profile management with a smooth, native-like experience.",
+    technologies: ["Flutter", "Firebase"],
+    github: "https://github.com/Minhan39/SocialNetworkMHN",
     live: "#",
   },
   {
-    title: "Task Management API",
+    title: "Social Network MHN - WEB API",
     description:
-      "RESTful API for task management with authentication and real-time updates",
-    technologies: ["Node.js", "Express", "MongoDB", "JWT"],
-    github: "#",
-  },
-  {
-    title: "Weather Dashboard",
-    description:
-      "Beautiful weather dashboard with forecasts, maps, and location-based alerts",
-    technologies: ["React", "OpenWeather API", "Chart.js"],
-    github: "#",
+      "A RESTful API powering the social media platform — handles authentication, post management, user relationships, and real-time notifications with scalable and maintainable architecture.",
+    technologies: ["Laravel", "MySQL", "JWT"],
+    github: "https://github.com/Minhan39/apiSocialNetwork",
     live: "#",
   },
   {
-    title: "Code Snippet Manager",
+    title: "Cinema Booking - APP",
     description:
-      "Desktop app for organizing and searching code snippets with syntax highlighting",
-    technologies: ["Electron", "React", "SQLite"],
-    github: "#",
-  },
-  {
-    title: "Social Media Analytics",
-    description:
-      "Analytics dashboard tracking engagement metrics across multiple platforms",
-    technologies: ["Next.js", "D3.js", "PostgreSQL"],
-    github: "#",
+      "A cross-platform movie ticket booking app built with React Native — browse movies, select showtimes, choose seats interactively, and complete bookings with a smooth and intuitive mobile experience.",
+    technologies: ["React Native"],
+    github: "https://github.com/Minhan39/AppMobileDatVeXemPhim_v2",
     live: "#",
   },
   {
-    title: "Markdown Editor",
+    title: "Cinema Booking - WEB",
     description:
-      "Real-time markdown editor with preview, export options, and cloud sync",
-    technologies: ["React", "CodeMirror", "Supabase"],
-    github: "#",
+      "A RESTful API built with Laravel to power the movie ticket booking platform — manages movies, showtimes, seat availability, booking transactions, and user authentication with a clean and scalable architecture.",
+    technologies: ["Laravel", "MySQL"],
+    github: "https://github.com/Minhan39/WebDatVeXemPhim_v2",
     live: "#",
   },
 ];
@@ -115,48 +101,50 @@ export function ProjectsSection() {
                 initial={{ opacity: 0, y: 80 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: index * 0.2, duration: 0.8 }}
-                className={`relative grid md:grid-cols-12 gap-4 items-center ${
-                  index % 2 === 1 ? "md:text-right" : ""
-                }`}
+                className={`relative grid md:grid-cols-12 gap-4 items-center ${index % 2 === 1 ? "md:text-right" : ""
+                  }`}
               >
                 {/* Project Image with Tilt */}
                 <div
-                  className={`md:col-span-7 ${
-                    index % 2 === 1 ? "md:order-2 md:col-start-6" : ""
-                  }`}
+                  className={`md:col-span-7 ${index % 2 === 1 ? "md:order-2 md:col-start-6" : ""
+                    }`}
                 >
                   <TiltCard className="group rounded-lg">
                     <a href={project.live} className="relative block">
                       <div className="relative aspect-video bg-secondary rounded-lg overflow-hidden">
-                        {/* Animated gradient overlay */}
-                        <motion.div
-                          className="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent z-10"
-                          initial={{ opacity: 0.6 }}
-                          whileHover={{ opacity: 0 }}
-                          transition={{ duration: 0.3 }}
-                        />
-                        {/* Scan line effect */}
-                        <motion.div
-                          className="absolute inset-0 z-20 pointer-events-none"
-                          style={{
-                            background:
-                              "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(100,200,180,0.03) 2px, rgba(100,200,180,0.03) 4px)",
-                          }}
-                        />
                         {/* Placeholder with animated border */}
-                        <div className="w-full h-full bg-gradient-to-br from-card to-secondary flex items-center justify-center relative">
-                          <Folder className="w-20 h-20 text-primary/20 group-hover:text-primary/40 transition-colors duration-500" />
-                          {/* Corner accents */}
-                          <motion.div
-                            className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-primary/50"
-                            initial={{ scale: 0 }}
-                            whileHover={{ scale: 1 }}
-                          />
-                          <motion.div
-                            className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-primary/50"
-                            initial={{ scale: 0 }}
-                            whileHover={{ scale: 1 }}
-                          />
+                        <div className="w-full h-full relative">
+                          {project.image ? (
+                            <>
+                              <img
+                                src={project.image}
+                                alt={project.title}
+                                className="w-full h-full object-cover"
+                              />
+                              <motion.div
+                                className="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent z-10"
+                                initial={{ opacity: 0.6 }}
+                                whileHover={{ opacity: 0 }}
+                                transition={{ duration: 0.3 }}
+                              />
+                            </>
+                          ) : (
+                            <>
+                              <div className="w-full h-full bg-gradient-to-br from-card to-secondary flex items-center justify-center relative">
+                                <Folder className="w-20 h-20 text-primary/20 group-hover:text-primary/40 transition-colors duration-500" />
+                                <motion.div
+                                  className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-primary/50"
+                                  initial={{ scale: 0 }}
+                                  whileHover={{ scale: 1 }}
+                                />
+                                <motion.div
+                                  className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-primary/50"
+                                  initial={{ scale: 0 }}
+                                  whileHover={{ scale: 1 }}
+                                />
+                              </div>
+                            </>
+                          )}
                         </div>
                       </div>
                     </a>
@@ -165,11 +153,10 @@ export function ProjectsSection() {
 
                 {/* Project Info */}
                 <div
-                  className={`md:col-span-6 ${
-                    index % 2 === 1
-                      ? "md:order-1 md:col-start-1"
-                      : "md:col-start-6"
-                  } md:row-start-1`}
+                  className={`md:col-span-6 ${index % 2 === 1
+                    ? "md:order-1 md:col-start-1"
+                    : "md:col-start-6"
+                    } md:row-start-1`}
                 >
                   <motion.p
                     className="text-primary font-mono text-sm mb-2"
@@ -205,9 +192,8 @@ export function ProjectsSection() {
                     </p>
                   </motion.div>
                   <ul
-                    className={`flex flex-wrap gap-3 mb-4 text-sm font-mono text-muted-foreground ${
-                      index % 2 === 1 ? "md:justify-end" : ""
-                    }`}
+                    className={`flex flex-wrap gap-3 mb-4 text-sm font-mono text-muted-foreground ${index % 2 === 1 ? "md:justify-end" : ""
+                      }`}
                   >
                     {project.technologies.map((tech, i) => (
                       <motion.li
@@ -222,9 +208,8 @@ export function ProjectsSection() {
                     ))}
                   </ul>
                   <div
-                    className={`flex gap-4 ${
-                      index % 2 === 1 ? "md:justify-end" : ""
-                    }`}
+                    className={`flex gap-4 ${index % 2 === 1 ? "md:justify-end" : ""
+                      }`}
                   >
                     <motion.a
                       href={project.github}
